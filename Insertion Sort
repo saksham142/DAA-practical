@@ -1,0 +1,54 @@
+#include <iostream>
+using namespace std;
+
+int comp = 0;
+
+void insertionSort(int arr[], int n)
+{
+    for(int i=1;i<n;i++)
+    {
+        int key = arr[i];
+        int j = i-1;
+
+        while(j>=0)
+        {
+            comp++;
+
+            if(arr[j] > key)
+            {
+                arr[j+1] = arr[j];
+                j--;
+            }
+            else
+                break;
+        }
+
+        arr[j+1] = key;
+    }
+}
+
+int main()
+{
+    int n;
+
+    cout<<"Enter size: ";
+    cin>>n;
+
+    int arr[n];
+
+    cout<<"Enter elements:\n";
+
+    for(int i=0;i<n;i++)
+        cin>>arr[i];
+
+    insertionSort(arr,n);
+
+    cout<<"Sorted Array:\n";
+
+    for(int i=0;i<n;i++)
+        cout<<arr[i]<<" ";
+
+    cout<<"\nComparisons = "<<comp;
+
+    return 0;
+}
